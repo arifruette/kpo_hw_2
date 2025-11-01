@@ -26,6 +26,18 @@ class ConsoleUserInteractionAgent @Inject constructor(): UserInteractionAgent {
         return input ?: defaultValue
     }
 
+    override fun inputBoolean(message: String): Boolean {
+        while (true) {
+            print("$message (y/n) ")
+            val input = readLine()?.trim()?.lowercase()
+            when (input) {
+                "y", "yes", "да", "д" -> return true
+                "n", "no", "нет", "н" -> return false
+                else -> println("Пожалуйста, введите 'y' или 'n'")
+            }
+        }
+    }
+
     override fun waitForNextStep(): Boolean {
         print("Нажмите Enter для продолжения...")
         readlnOrNull()

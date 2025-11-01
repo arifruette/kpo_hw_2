@@ -24,4 +24,6 @@ class ShowOperationsCommand @Inject constructor(
             }
         }
     }
+
+    override val name: String = "show_operations"
 }

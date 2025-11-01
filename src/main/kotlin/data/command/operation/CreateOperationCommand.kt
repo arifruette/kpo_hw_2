@@ -72,4 +72,6 @@ class CreateOperationCommand @Inject constructor(
             userInteractionAgent.showMessage("Ошибка при создании операции")
         }
     }
+
+    override val name: String = "create_operation"
 }

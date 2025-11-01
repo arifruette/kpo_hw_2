@@ -44,4 +44,6 @@ class DeleteOperationCommand @Inject constructor(
             userInteractionAgent.showMessage("Некорректный выбор")
         }
     }
+
+    override val name: String = "delete_operation"
 }

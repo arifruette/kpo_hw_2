@@ -9,5 +9,7 @@ interface UserInteractionAgent {
 
     fun inputInt(message: String, defaultValue: Int = 0): Int
 
+    fun inputBoolean(message: String): Boolean
+
     fun waitForNextStep(): Boolean
 }

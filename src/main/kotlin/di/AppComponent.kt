@@ -13,6 +13,7 @@ import di.pages.PagesComponent
 import di.pages.PagesModule
 import di.repository.RepositoryComponent
 import di.repository.RepositoryModule
+import di.statistic.StatisticsModule
 import javax.inject.Singleton
 
 @Singleton
@@ -22,7 +23,8 @@ import javax.inject.Singleton
     FacadeModule::class,
     CommandModule::class,
     PagesModule::class,
-    UserInteractionAgentModule::class
+    UserInteractionAgentModule::class,
+    StatisticsModule::class
 ])
 interface AppComponent {
     fun repositoryComponent(): RepositoryComponent.Factory
