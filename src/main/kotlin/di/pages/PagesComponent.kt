@@ -1,13 +1,11 @@
 package di.pages
 
 import dagger.Subcomponent
-import presentation.pages.MainPage
-import presentation.pages.OperationListPage
+import presentation.DefaultPageRenderer
 
 @Subcomponent
 interface PagesComponent {
-    val mainPage: MainPage
-    val operationListPage: OperationListPage
+    val defaultPageRenderer: DefaultPageRenderer
 
     @Subcomponent.Factory
     interface Factory {

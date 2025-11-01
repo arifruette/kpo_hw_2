@@ -7,9 +7,12 @@ import domain.annotation.command.DeleteOperations
 import domain.annotation.command.ShowOperations
 import domain.command.Command
 import domain.interaction.UserInteractionAgent
+import presentation.DefaultPageRenderer
+import presentation.Page
 import presentation.pages.MainPage
 import presentation.pages.OperationListPage
 import javax.inject.Singleton
+import kotlin.reflect.KClass
 
 @Module
 object PagesModule {
@@ -35,4 +38,21 @@ object PagesModule {
             deleteOperationCommand
         )
     }
+
+    @Provides
+    @Singleton
+    fun provideScreensMap(
+        mainPage: MainPage,
+        operationListPage: OperationListPage,
+    ): Map<KClass<out Page>, @JvmSuppressWildcards Page> = mapOf(
+        mainPage::class to mainPage,
+        operationListPage::class to operationListPage
+    )
+
+    @Provides
+    @Singleton
+    fun provideDefaultPageRenderer(
+        mainPage: MainPage,
+        screensMap: Map<KClass<out Page>, @JvmSuppressWildcards Page>
+    ) = DefaultPageRenderer(screensMap, mainPage)
 }
