@@ -4,8 +4,9 @@ import domain.models.Category
 import domain.models.CategoryType
 import domain.models.common.Id
 import domain.repository.CategoryRepository
+import javax.inject.Inject
 
-class CategoryRepositoryImpl : CategoryRepository {
+class CategoryRepositoryImpl @Inject constructor(): CategoryRepository {
     private val categories = mutableMapOf<Id, Category>()
 
     override fun findById(id: Id): Category? = categories[id]

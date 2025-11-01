@@ -32,4 +32,5 @@ interface OperationFacade {
 
     fun addExistingOperation(operation: Operation): Boolean
 
+    fun getAllOperations(): List<Operation>
 }

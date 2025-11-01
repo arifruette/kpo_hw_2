@@ -20,7 +20,7 @@ class CategoryFacadeImpl @Inject constructor(
             if (categoryRepository.findByNameAndType(name, type) != null) return false
             val category = categoryFactory.createCategory(type, name)
             return categoryRepository.save(category)
-        } catch (e: IllegalArgumentException) {
+        } catch (_: IllegalArgumentException) {
             return false
         }
     }
@@ -54,4 +54,6 @@ class CategoryFacadeImpl @Inject constructor(
         if (categoryRepository.findByNameAndType(category.name, category.type) != null) return false
         return categoryRepository.save(category)
     }
+
+    override fun getAllCategories(): List<Category> = categoryRepository.findAll()
 }

@@ -15,4 +15,6 @@ interface BankAccountFacade {
 
     fun getBankAccountById(id: Id): BankAccount?
 
+    fun getAllBankAccounts(): List<BankAccount>
+
 }

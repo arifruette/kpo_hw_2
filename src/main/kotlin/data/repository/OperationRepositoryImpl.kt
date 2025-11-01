@@ -4,8 +4,9 @@ package data.repository
 import domain.models.Operation
 import domain.models.common.Id
 import domain.repository.OperationRepository
+import javax.inject.Inject
 
-class OperationRepositoryImpl : OperationRepository {
+class OperationRepositoryImpl @Inject constructor(): OperationRepository {
     private val operations = mutableMapOf<Id, Operation>()
     
     override fun findById(id: Id): Operation? = operations[id]

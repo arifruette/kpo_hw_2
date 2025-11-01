@@ -8,8 +8,9 @@ version = "1.0-SNAPSHOT"
 
 repositories {
     mavenCentral()
+    google()
+    gradlePluginPortal()
 }
-
 dependencies {
     implementation("com.google.dagger:dagger:2.55")
     kapt("com.google.dagger:dagger-compiler:2.55")

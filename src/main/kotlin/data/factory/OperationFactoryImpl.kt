@@ -5,8 +5,9 @@ import domain.models.Operation
 import domain.models.OperationType
 import domain.models.common.IdGenerator
 import java.time.LocalDateTime
+import javax.inject.Inject
 
-class OperationFactoryImpl: OperationFactory {
+class OperationFactoryImpl @Inject constructor(): OperationFactory {
     override fun createOperation(
         type: OperationType,
         bankAccountId: String,

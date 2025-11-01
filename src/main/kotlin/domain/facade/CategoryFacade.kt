@@ -16,4 +16,5 @@ interface CategoryFacade {
 
     fun addExistingCategory(category: Category): Boolean
 
+    fun getAllCategories(): List<Category>
 }

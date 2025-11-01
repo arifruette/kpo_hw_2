@@ -145,6 +145,8 @@ class OperationFacadeImpl @Inject constructor(
         return operationRepository.save(operation)
     }
 
+    override fun getAllOperations(): List<Operation> =operationRepository.findAll()
+
     private fun updateAccountBalance(account: BankAccount, amount: Double, type: OperationType) {
         account.balance += if (type == OperationType.INCOME) amount else -amount
     }

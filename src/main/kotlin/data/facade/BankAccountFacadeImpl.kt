@@ -54,7 +54,7 @@ class BankAccountFacadeImpl @Inject constructor(
         return existing
     }
 
-    override fun getBankAccountById(id: Id): BankAccount? {
-        return bankAccountRepository.findById(id)
-    }
+    override fun getBankAccountById(id: Id): BankAccount? = bankAccountRepository.findById(id)
+
+    override fun getAllBankAccounts(): List<BankAccount> = bankAccountRepository.findAll()
 }
