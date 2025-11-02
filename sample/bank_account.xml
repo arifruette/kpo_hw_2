@@ -1,0 +1,12 @@
+<BankAccounts>
+    <BankAccount>
+        <id>acc1</id>
+        <name>Основной счет</name>
+        <balance>100000.0</balance>
+    </BankAccount>
+    <BankAccount>
+        <id>acc2</id>
+        <name>Резервный счет</name>
+        <balance>50000.0</balance>
+    </BankAccount>
+</BankAccounts>

@@ -1,0 +1,6 @@
+id,type,name
+cat1,INCOME,Зарплата
+cat2,INCOME,Инвестиции
+cat3,EXPENSE,Продукты
+cat4,EXPENSE,Транспорт
+cat5,EXPENSE,Развлечения

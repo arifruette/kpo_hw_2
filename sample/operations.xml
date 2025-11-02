@@ -1,0 +1,20 @@
+<Operations>
+    <Operation>
+        <id>op1</id>
+        <type>INCOME</type>
+        <bankAccountId>acc1</bankAccountId>
+        <amount>50000.0</amount>
+        <date>2024-01-15T10:00:00</date>
+        <description>Зарплата за январь</description>
+        <categoryId>cat1</categoryId>
+    </Operation>
+    <Operation>
+        <id>op2</id>
+        <type>EXPENSE</type>
+        <bankAccountId>acc1</bankAccountId>
+        <amount>3500.0</amount>
+        <date>2024-01-16T18:30:00</date>
+        <description>Продукты в Пятерочке</description>
+        <categoryId>cat2</categoryId>
+    </Operation>
+</Operations>

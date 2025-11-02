@@ -1,0 +1,27 @@
+[
+  {
+    "id": "cat1",
+    "type": "INCOME",
+    "name": "Зарплата"
+  },
+  {
+    "id": "cat2",
+    "type": "INCOME",
+    "name": "Инвестиции"
+  },
+  {
+    "id": "cat3",
+    "type": "EXPENSE",
+    "name": "Продукты"
+  },
+  {
+    "id": "cat4",
+    "type": "EXPENSE",
+    "name": "Транспорт"
+  },
+  {
+    "id": "cat5",
+    "type": "EXPENSE",
+    "name": "Развлечения"
+  }
+]

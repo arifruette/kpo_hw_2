@@ -1,0 +1,47 @@
+[
+  {
+    "id": "op1",
+    "type": "INCOME",
+    "bankAccountId": "acc1",
+    "amount": 50000.0,
+    "date": "2024-01-15T10:00:00",
+    "description": "Зарплата за январь",
+    "categoryId": "cat1"
+  },
+  {
+    "id": "op2",
+    "type": "EXPENSE",
+    "bankAccountId": "acc1",
+    "amount": 3500.0,
+    "date": "2024-01-16T18:30:00",
+    "description": "Продукты в Пятерочке",
+    "categoryId": "cat3"
+  },
+  {
+    "id": "op3",
+    "type": "EXPENSE",
+    "bankAccountId": "acc1",
+    "amount": 500.0,
+    "date": "2024-01-17T08:15:00",
+    "description": "Проезд на метро",
+    "categoryId": "cat4"
+  },
+  {
+    "id": "op4",
+    "type": "INCOME",
+    "bankAccountId": "acc2",
+    "amount": 15000.0,
+    "date": "2024-01-18T14:20:00",
+    "description": "Дивиденды по акциям",
+    "categoryId": "cat2"
+  },
+  {
+    "id": "op5",
+    "type": "EXPENSE",
+    "bankAccountId": "acc1",
+    "amount": 2000.0,
+    "date": "2024-01-19T20:45:00",
+    "description": "Кино",
+    "categoryId": "cat5"
+  }
+]

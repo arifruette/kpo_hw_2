@@ -1,0 +1,6 @@
+id,type,bankAccountId,amount,date,description,categoryId
+op1,INCOME,acc1,50000.0,2024-01-15T10:00:00,Зарплата за январь,cat1
+op2,EXPENSE,acc1,3500.0,2024-01-16T18:30:00,Продукты в Пятерочке,cat3
+op3,EXPENSE,acc1,500.0,2024-01-17T08:15:00,Проезд на метро,cat4
+op4,INCOME,acc2,15000.0,2024-01-18T14:20:00,Дивиденды по акциям,cat2
+op5,EXPENSE,acc1,2000.0,2024-01-19T20:45:00,Кино,cat5

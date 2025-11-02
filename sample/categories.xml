@@ -1,0 +1,12 @@
+<Categories>
+    <Category>
+        <id>cat1</id>
+        <type>INCOME</type>
+        <name>Зарплата</name>
+    </Category>
+    <Category>
+        <id>cat2</id>
+        <type>EXPENSE</type>
+        <name>Продукты</name>
+    </Category>
+</Categories>

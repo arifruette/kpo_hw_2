@@ -53,7 +53,7 @@ abstract class FileImporter(
     }
 
     private fun readFileContent(filePath: String): String? {
-        val file = File(filePath)
+        val file = File("sample/$filePath")
         return if (file.exists() && file.isFile) {
             file.readText()
         } else {
