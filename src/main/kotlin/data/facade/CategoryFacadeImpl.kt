@@ -7,6 +7,7 @@ import domain.models.CategoryType
 import domain.models.common.Id
 import domain.repository.CategoryRepository
 import domain.repository.OperationRepository
+import domain.visitor.Visitor
 import javax.inject.Inject
 
 class CategoryFacadeImpl @Inject constructor(
@@ -56,4 +57,6 @@ class CategoryFacadeImpl @Inject constructor(
     }
 
     override fun getAllCategories(): List<Category> = categoryRepository.findAll()
+
+    override fun acceptVisitor(visitor: Visitor) = visitor.processCategories(categoryRepository.findAll())
 }

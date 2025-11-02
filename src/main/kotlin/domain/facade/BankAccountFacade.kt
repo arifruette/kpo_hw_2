@@ -2,8 +2,9 @@ package domain.facade
 
 import domain.models.BankAccount
 import domain.models.common.Id
+import domain.visitor.BaseElement
 
-interface BankAccountFacade {
+interface BankAccountFacade: BaseElement {
 
     fun addExistingBankAccount(bankAccount: BankAccount): Boolean
 
@@ -16,5 +17,4 @@ interface BankAccountFacade {
     fun getBankAccountById(id: Id): BankAccount?
 
     fun getAllBankAccounts(): List<BankAccount>
-
 }

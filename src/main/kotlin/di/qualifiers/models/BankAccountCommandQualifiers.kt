@@ -1,4 +1,4 @@
-package di.qualifiers
+package di.qualifiers.models
 
 import javax.inject.Qualifier
 

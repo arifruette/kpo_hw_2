@@ -1,9 +1,9 @@
 package presentation.pages
 
-import di.qualifiers.CreateOperation
-import di.qualifiers.DeleteOperation
-import di.qualifiers.ShowOperations
-import di.qualifiers.UpdateOperation
+import di.qualifiers.models.CreateOperation
+import di.qualifiers.models.DeleteOperation
+import di.qualifiers.models.ShowOperations
+import di.qualifiers.models.UpdateOperation
 import domain.command.Command
 import domain.interaction.UserInteractionAgent
 import presentation.Page

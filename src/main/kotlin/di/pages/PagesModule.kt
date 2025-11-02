@@ -1,17 +1,15 @@
 package di.pages
 
-import presentation.pages.MainPage
 import dagger.Module
 import dagger.Provides
-import di.qualifiers.*
+import di.qualifiers.file.*
+import di.qualifiers.models.*
 import domain.command.Command
 import domain.interaction.UserInteractionAgent
 import domain.statistic.StatisticReporter
 import presentation.DefaultPageRenderer
 import presentation.Page
-import presentation.pages.BankAccountListPage
-import presentation.pages.OperationListPage
-import presentation.pages.StatisticsPage
+import presentation.pages.*
 import javax.inject.Singleton
 import kotlin.reflect.KClass
 
@@ -62,6 +60,46 @@ object PagesModule {
 
     @Provides
     @Singleton
+    fun provideCategoryListPage(
+        userInteractionAgent: UserInteractionAgent,
+        @ShowCategories showCategoriesCommand: Command,
+        @CreateIncomeCategory createIncomeCategoryCommand: Command,
+        @CreateExpenseCategory createExpenseCategoryCommand: Command,
+        @EditCategory editCategoryCommand: Command,
+        @DeleteCategory deleteCategoryCommand: Command
+    ): CategoryListPage {
+        return CategoryListPage(
+            userInteractionAgent,
+            showCategoriesCommand,
+            createIncomeCategoryCommand,
+            createExpenseCategoryCommand,
+            editCategoryCommand,
+            deleteCategoryCommand
+        )
+    }
+
+    @Provides
+    @Singleton
+    fun provideExportDataPage(
+        userInteractionAgent: UserInteractionAgent,
+        @ExportBankAccountsToCsv exportBankAccountsToCsv: Command,
+        @ExportBankAccountsToJson exportBankAccountsToJson: Command,
+        @ExportCategoriesToCsv exportCategoriesToCsv: Command,
+        @ExportCategoriesToJson exportCategoriesToJson: Command,
+        @ExportOperationsToCsv exportOperationsToCsv: Command,
+        @ExportOperationsToJson exportOperationsToJson: Command,
+    ): ExportDataPage = ExportDataPage(
+        userInteractionAgent = userInteractionAgent,
+        exportBankAccountsToCsv = exportBankAccountsToCsv,
+        exportBankAccountsToJson = exportBankAccountsToJson,
+        exportCategoriesToCsv = exportCategoriesToCsv,
+        exportCategoriesToJson = exportCategoriesToJson,
+        exportOperationsToCsv = exportOperationsToCsv,
+        exportOperationsToJson = exportOperationsToJson
+    )
+
+    @Provides
+    @Singleton
     fun provideStatisticsPage(
         userInteractionAgent: UserInteractionAgent,
         statisticReporter: StatisticReporter
@@ -74,11 +112,15 @@ object PagesModule {
     fun provideScreensMap(
         mainPage: MainPage,
         operationListPage: OperationListPage,
+        categoryListPage: CategoryListPage,
+        exportDataPage: ExportDataPage,
         statisticsPage: StatisticsPage,
         bankAccountListPage: BankAccountListPage
     ): Map<KClass<out Page>, @JvmSuppressWildcards Page> = mapOf(
         mainPage::class to mainPage,
         bankAccountListPage::class to bankAccountListPage,
+        categoryListPage::class to categoryListPage,
+        exportDataPage::class to exportDataPage,
         statisticsPage::class to statisticsPage,
         operationListPage::class to operationListPage
     )

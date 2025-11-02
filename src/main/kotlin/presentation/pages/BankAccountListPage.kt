@@ -1,9 +1,9 @@
 package presentation.pages
 
-import di.qualifiers.CreateBankAccount
-import di.qualifiers.DeleteBankAccount
-import di.qualifiers.ShowBankAccounts
-import di.qualifiers.UpdateBankAccount
+import di.qualifiers.models.CreateBankAccount
+import di.qualifiers.models.DeleteBankAccount
+import di.qualifiers.models.ShowBankAccounts
+import di.qualifiers.models.UpdateBankAccount
 import domain.command.Command
 import domain.interaction.UserInteractionAgent
 import presentation.Page

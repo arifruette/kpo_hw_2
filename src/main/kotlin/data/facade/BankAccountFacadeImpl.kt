@@ -6,6 +6,7 @@ import domain.models.BankAccount
 import domain.models.common.Id
 import domain.repository.BankAccountRepository
 import domain.repository.OperationRepository
+import domain.visitor.Visitor
 import javax.inject.Inject
 
 class BankAccountFacadeImpl @Inject constructor(
@@ -57,4 +58,6 @@ class BankAccountFacadeImpl @Inject constructor(
     override fun getBankAccountById(id: Id): BankAccount? = bankAccountRepository.findById(id)
 
     override fun getAllBankAccounts(): List<BankAccount> = bankAccountRepository.findAll()
+
+    override fun acceptVisitor(visitor: Visitor) = visitor.processBankAccounts(bankAccountRepository.findAll())
 }

@@ -10,6 +10,7 @@ import domain.models.common.Id
 import domain.repository.BankAccountRepository
 import domain.repository.CategoryRepository
 import domain.repository.OperationRepository
+import domain.visitor.Visitor
 import java.time.LocalDateTime
 import javax.inject.Inject
 
@@ -145,7 +146,9 @@ class OperationFacadeImpl @Inject constructor(
         return operationRepository.save(operation)
     }
 
-    override fun getAllOperations(): List<Operation> =operationRepository.findAll()
+    override fun getAllOperations(): List<Operation> = operationRepository.findAll()
+
+    override fun acceptVisitor(visitor: Visitor) = visitor.processOperations(operationRepository.findAll())
 
     private fun updateAccountBalance(account: BankAccount, amount: Double, type: OperationType) {
         account.balance += if (type == OperationType.INCOME) amount else -amount

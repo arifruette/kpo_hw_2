@@ -3,8 +3,9 @@ package domain.facade
 import domain.models.Category
 import domain.models.CategoryType
 import domain.models.common.Id
+import domain.visitor.BaseElement
 
-interface CategoryFacade {
+interface CategoryFacade : BaseElement {
 
     fun addCategory(type: CategoryType, name: String): Boolean
 
@@ -17,4 +18,5 @@ interface CategoryFacade {
     fun addExistingCategory(category: Category): Boolean
 
     fun getAllCategories(): List<Category>
+
 }

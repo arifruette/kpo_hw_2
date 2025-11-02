@@ -3,9 +3,10 @@ package domain.facade
 import domain.models.Operation
 import domain.models.OperationType
 import domain.models.common.Id
+import domain.visitor.BaseElement
 import java.time.LocalDateTime
 
-interface OperationFacade {
+interface OperationFacade : BaseElement {
 
     fun addOperation(
         type: OperationType,

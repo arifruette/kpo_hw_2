@@ -1,17 +1,16 @@
-package di.command
+package di.command.models
 
 import dagger.Module
 import dagger.Provides
 import data.command.TimeComputingCommandDecorator
-import data.command.account.CreateBankAccountCommand
-import data.command.account.DeleteBankAccountCommand
-import data.command.account.ShowBankAccountsCommand
-import data.command.account.UpdateBankAccountCommand
 import data.command.operation.CreateOperationCommand
 import data.command.operation.DeleteOperationCommand
 import data.command.operation.EditOperationCommand
 import data.command.operation.ShowOperationsCommand
-import di.qualifiers.*
+import di.qualifiers.models.CreateOperation
+import di.qualifiers.models.DeleteOperation
+import di.qualifiers.models.ShowOperations
+import di.qualifiers.models.UpdateOperation
 import domain.command.Command
 import domain.facade.BankAccountFacade
 import domain.facade.CategoryFacade
@@ -20,7 +19,7 @@ import domain.interaction.UserInteractionAgent
 import domain.statistic.StatisticReporter
 
 @Module
-object CommandModule {
+object OperationsCommandModule {
 
     // region operations command
     @Provides
@@ -86,60 +85,6 @@ object CommandModule {
                 categoryFacade,
                 userInteractionAgent
             ),
-            statisticReporter = statisticReporter
-        )
-    }
-    // endregion
-
-    // region account commands
-    @Provides
-    @ShowBankAccounts
-    fun provideShowBankAccountsCommand(
-        bankAccountFacade: BankAccountFacade,
-        userInteractionAgent: UserInteractionAgent,
-        statisticReporter: StatisticReporter,
-    ): Command {
-        return TimeComputingCommandDecorator(
-            baseCommand = ShowBankAccountsCommand(bankAccountFacade, userInteractionAgent),
-            statisticReporter = statisticReporter
-        )
-    }
-
-    @Provides
-    @CreateBankAccount
-    fun provideCreateBankAccountCommand(
-        bankAccountFacade: BankAccountFacade,
-        userInteractionAgent: UserInteractionAgent,
-        statisticReporter: StatisticReporter
-    ): Command {
-        return TimeComputingCommandDecorator(
-            baseCommand = CreateBankAccountCommand(bankAccountFacade, userInteractionAgent),
-            statisticReporter = statisticReporter
-        )
-    }
-
-    @Provides
-    @UpdateBankAccount
-    fun provideUpdateBankAccountCommand(
-        bankAccountFacade: BankAccountFacade,
-        userInteractionAgent: UserInteractionAgent,
-        statisticReporter: StatisticReporter
-    ): Command {
-        return TimeComputingCommandDecorator(
-            baseCommand = UpdateBankAccountCommand(bankAccountFacade, userInteractionAgent),
-            statisticReporter = statisticReporter
-        )
-    }
-
-    @Provides
-    @DeleteBankAccount
-    fun provideDeleteBankAccountCommand(
-        bankAccountFacade: BankAccountFacade,
-        userInteractionAgent: UserInteractionAgent,
-        statisticReporter: StatisticReporter
-    ): Command {
-        return TimeComputingCommandDecorator(
-            baseCommand = DeleteBankAccountCommand(bankAccountFacade, userInteractionAgent),
             statisticReporter = statisticReporter
         )
     }
