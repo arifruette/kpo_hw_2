@@ -9,12 +9,14 @@ class TimeComputingCommandDecorator(
 ) : Command {
     
     override val name: String = baseCommand.name
-    
+
     override fun execute() {
-        val startTime = System.currentTimeMillis()
-        baseCommand.execute()
-        val endTime = System.currentTimeMillis()
-        val duration = endTime - startTime
-        statisticReporter.addLine("Команда '${baseCommand.name}' выполнена за ${duration}ms")
+        val start = System.currentTimeMillis()
+        try {
+            baseCommand.execute()
+        } finally {
+            val end = System.currentTimeMillis()
+            statisticReporter.addLine("Команда '${baseCommand.name}' выполнена за ${end - start}ms")
+        }
     }
 }
