@@ -7,20 +7,3 @@ fun main() {
 
     renderer.startRendering()
 }
-
-
-//interface StatisticReporter {
-//    fun addLine(line: String)
-//}
-//class TimeComputingCommandDecorator(
-//    private val baseCommand: Command,
-//    private val statisticReporter: StatisticReporter
-//): Command {
-//    override fun execute() {
-//        val curTime = System.currentTimeMillis()
-//        baseCommand.execute()
-//        val endTime = System.currentTimeMillis()
-//        statisticReporter.addLine("Операция ${baseCommand.name} была выполнена за ${endTime - curTime}")
-//    }
-//
-//}
