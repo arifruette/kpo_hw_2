@@ -7,6 +7,7 @@ import di.command.models.CategoriesCommandModule
 import di.command.models.OperationsCommandModule
 import di.facade.FacadeModule
 import di.factory.FactoryModule
+import di.file.ImportModule
 import di.interaction.UserInteractionAgentModule
 import di.pages.PagesComponent
 import di.pages.PagesModule
@@ -25,6 +26,7 @@ import javax.inject.Singleton
         OperationsCommandModule::class,
         CategoriesCommandModule::class,
         BankAccountsCommandModule::class,
+        ImportModule::class,
         PagesModule::class,
         ExportCommandsModule::class,
         UserInteractionAgentModule::class,

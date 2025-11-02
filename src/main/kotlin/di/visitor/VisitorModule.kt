@@ -9,7 +9,6 @@ import di.qualifiers.visitor.JsonVisitor
 import domain.visitor.Visitor
 import javax.inject.Singleton
 
-// VisitorModule.kt
 @Module
 interface VisitorModule {
 

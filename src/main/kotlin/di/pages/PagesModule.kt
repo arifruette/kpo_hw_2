@@ -1,5 +1,6 @@
 package di.pages
 
+import presentation.pages.ImportDataPage
 import dagger.Module
 import dagger.Provides
 import di.qualifiers.file.*
@@ -109,18 +110,34 @@ object PagesModule {
 
     @Provides
     @Singleton
+    fun provideImportDataPage(
+        userInteractionAgent: UserInteractionAgent,
+        @ImportFromCsv importFromCsvCommand: Command,
+        @ImportFromJson importFromJsonCommand: Command,
+        @ImportFromXml importFromXmlCommand: Command,
+    ): ImportDataPage = ImportDataPage(
+        userInteractionAgent = userInteractionAgent,
+        importFromCsvCommand = importFromCsvCommand,
+        importFromJsonCommand = importFromJsonCommand,
+        importFromXmlCommand = importFromXmlCommand,
+    )
+
+    @Provides
+    @Singleton
     fun provideScreensMap(
         mainPage: MainPage,
         operationListPage: OperationListPage,
         categoryListPage: CategoryListPage,
         exportDataPage: ExportDataPage,
         statisticsPage: StatisticsPage,
+        importDataPage: ImportDataPage,
         bankAccountListPage: BankAccountListPage
     ): Map<KClass<out Page>, @JvmSuppressWildcards Page> = mapOf(
         mainPage::class to mainPage,
         bankAccountListPage::class to bankAccountListPage,
         categoryListPage::class to categoryListPage,
         exportDataPage::class to exportDataPage,
+        importDataPage::class to importDataPage,
         statisticsPage::class to statisticsPage,
         operationListPage::class to operationListPage
     )
